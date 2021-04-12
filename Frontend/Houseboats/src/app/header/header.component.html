@@ -1,0 +1,14 @@
+<div>
+    <nav class="navbar">
+        <h3 class="name"><strong>{{title}}</strong></h3>
+        <ul class="nav-list">
+            <li><a routerLink="/houseboats" *ngIf="_auth.loggedIn()">Houseboats</a></li>
+            <li><a routerLink="/add" *ngIf="_auth.loggedIn() && _auth.rolesVerify()">Add Houseboat</a></li>
+            <li><a routerLink="/bookings" *ngIf="_auth.loggedIn() && _auth.rolesVerify()">Bookings</a></li>
+            <li><a *ngIf="_auth.loggedIn()" (click)="logoutUser()">Logout</a></li>
+            <li><a routerLink="/" *ngIf="!_auth.loggedIn()">Home</a></li>
+            <li><a routerLink="/signup" *ngIf="!_auth.loggedIn()">Sign Up</a></li>
+            <li><a routerLink="/login" *ngIf="!_auth.loggedIn()">Login</a></li>
+        </ul>
+    </nav>
+</div>

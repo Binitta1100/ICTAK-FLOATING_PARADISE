@@ -1,0 +1,59 @@
+<div class='container'>
+    <div>
+        <h3 style="color: #1687a7; margin-top: 1%; margin-bottom: 2%; text-align: center;">{{title}}
+            <p class="lead"></p>
+        </h3>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7" style="margin-left:250px">
+                <div class="panel">
+                    <div class="panel-body" *ngFor='let booking of bookings'>
+                        <div class="row" style="background-color: #d3e0ea; border-radius: 20px; margin-bottom: 10px;">
+                            <br>
+                            <div class="col-md-6 col-sm-6" style="margin-left: 8%;">
+                                <div class="row" style="margin-bottom: 20px; margin-top: 10px;">
+                                    <div class="col-xs-6">
+                                        <table class="table-reponsive">
+                                            <tbody> 
+                                                <tr>
+                                                    <td><p><b>Name</b></p></td>
+                                                    <td><p name="bookpersonname">{{booking.bookpersonname}}</p></td>                  
+                                                </tr>
+                                                <tr>
+                                                    <td><p><b>Email</b></p></td>
+                                                    <td><p name="bookpersonemail">{{booking.bookpersonemail}}</p></td>                  
+                                                </tr>
+                                                <tr>
+                                                    <td><p><b>{{booking.booktype}}&nbsp;</b></p></td>
+                                                    <td><p name="bookhouseboatid"> {{booking.bookhouseboatid}}</p></td>                  
+                                                </tr>
+                                                <tr>
+                                                    <td><p><b>No of Persons</b></p></td>
+                                                    <td><p name="noofpersons">{{booking.noofpersons}}</p></td>                  
+                                                </tr>
+                                                <tr>
+                                                    <td><p><b>Date</b></p></td>
+                                                    <td><p name="date">{{booking.date}}</p></td>                  
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td><div class="row">
+                                                        <button class="btn btn-danger" style="margin-left: 400px;" *ngIf="_auth.rolesVerify()" (click)="DeleteBooking(booking._id)">Delete</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody> 
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>

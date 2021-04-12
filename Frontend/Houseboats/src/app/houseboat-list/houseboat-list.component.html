@@ -1,0 +1,42 @@
+<div class='container'>
+    <div>
+        <h3 style="color: #1687a7; margin-top: 1%; margin-bottom: 2%; text-align: center;">{{title}}
+            <p class="lead"></p>
+        </h3>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-body"  *ngFor='let houseboat of houseboats' style="background-color: #d3e0ea; border-radius: 20px;">
+                        <div class="row" style="margin-top: 20px;">
+                            <br>
+                            <div class="col-md-2 col-sm-3 text-center">
+                                <img [src]='houseboat.img' [title]='houseboat.name' style="width: 100px; height: 100px; margin-top: 10px;" class="img-circle">
+                            </div>
+                            <div class="col-md-10 col-sm-10">
+                                <h4 style="margin-top: 10px;">{{houseboat.houseboatid}}</h4>
+                                <div class="row" style="margin-bottom: 20px;">
+                                    <div class="col-xs-9">
+                                        <h6>{{houseboat.type}}</h6>
+                                        <h6><span class="label label-default">Rs. {{houseboat.rate}} per <span>{{houseboat.type == 'houseboat' ? 'day' : 'hour'}}</span></span> <br>
+                                            <p href="" class="text-muted">{{houseboat.desc}}</p>
+                                        </h6>
+                                        <div class="row">
+                                            <button class="btn btn-primary" style="margin-left: 700px;" *ngIf="_auth.rolesVerify()" (click)="EditHouseboat(houseboat)">Edit</button>
+                                            <button class="btn btn-danger" style="margin-left: 5px; margin-right: 5px;" *ngIf="_auth.rolesVerify()" (click)="DeleteHouseboat(houseboat._id)">Delete</button>
+                                            <button class="btn btn-warning" style="float: right;" (click)="BookHouseboat(houseboat)">Book</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
